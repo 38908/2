@@ -9,5 +9,4 @@ jobs:
       - run: cmake --build build --config Release
       - uses: actions/upload-artifact@v4
         with:
-          name: VVCSoftware_VTM
-          path: build/Release
+          path: VVCSoftware_VTM-VTM-23.11/bin/vs17/msvc-19.44/x86_64/release
