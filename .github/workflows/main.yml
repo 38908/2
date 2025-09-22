@@ -4,14 +4,15 @@ jobs:
     runs-on: windows-2025
     steps:
       - run: |
-          curl -O https://vcgit.hhi.fraunhofer.de/ecm/ECM/-/archive/ECM-18.0/ECM-ECM-18.0.zip
-          tar -xf ECM-ECM-18.0.zip
-          cmake -S ECM-ECM-18.0 -B build -A x64
+          curl -O https://vcgit.hhi.fraunhofer.de/jvet/VVCSoftware_VTM/-/archive/VTM-23.11/VVCSoftware_VTM-VTM-23.11.zip
+          tar -xf VVCSoftware_VTM-VTM-23.11.zip
+          cmake -S VVCSoftware_VTM-VTM-23.11 -B build -A x64
           cmake --build build --config Release
           curl -O https://media.xiph.org/video/derf/y4m/big_buck_bunny_360p24.y4m.xz
           7z e big_buck_bunny_360p24.y4m.xz
           del big_buck_bunny_360p24.y4m.xz
-          ECM-ECM-18.0/bin/vs17/msvc-19.44/x86_64/release/EncoderApp -c ECM-ECM-18.0/cfg/encoder_randomaccess_ecm.cfg -i big_buck_bunny_360p24.y4m -f 128
+          VVCSoftware_VTM-VTM-23.11/bin/vs17/msvc-19.44/x86_64/release/EncoderApp -c VVCSoftware_VTM-VTM-23.11/cfg/encoder_randomaccess_vtm.cfg -i big_buck_bunny_360p24.y4m -f 128
+          del big_buck_bunny_360p24.y4m
       - uses: actions/upload-artifact@v4
         with:
           path: .
