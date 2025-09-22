@@ -8,10 +8,10 @@ jobs:
           tar -xf VVCSoftware_VTM-VTM-23.11.zip
           cmake -S VVCSoftware_VTM-VTM-23.11 -B build -A x64 -DENABLE_SEARCH_OPENSSL=off
           cmake --build build --config Release
-#         curl -O https://vcgit.hhi.fraunhofer.de/jvet/JM/-/archive/JM-19.1/JM-JM-19.1.zip
-#         tar -xf JM-JM-19.1.zip
-#         cmake -S JM-JM-19.1 -B build -A x64
+          curl -O https://media.xiph.org/video/derf/y4m/big_buck_bunny_360p24.y4m.xz
+          tar -xf big_buck_bunny_360p24.y4m.xz
+          del big_buck_bunny_360p24.y4m.xz
+          VVCSoftware_VTM-VTM-23.11/bin/vs17/msvc-19.44/x86_64/release/EncoderApp -c VVCSoftware_VTM/cfg/encoder_randomaccess_vtm.cfg -i big_buck_bunny_360p24.y4m -f 14315
       - uses: actions/upload-artifact@v4
         with:
-          path: VVCSoftware_VTM-VTM-23.11/bin/vs17/msvc-19.44/x86_64/release
-#         path: JM-JM-19.1/bin/vs17/msvc-19.44/x86_64/release
+          path: .
