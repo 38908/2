@@ -8,10 +8,13 @@ jobs:
           tar -xf VVCSoftware_VTM-VTM-23.11.zip
           cmake -S VVCSoftware_VTM-VTM-23.11 -B build -A x64
           cmake --build build --config Release
+          choco install openssl
+          copy "C:\Program Files\OpenSSL-Win64\bin\libcrypto-3-x64.dll" VVCSoftware_VTM-VTM-23.11/bin/vs17/msvc-19.44/x86_64/release
+          copy "C:\Program Files\OpenSSL-Win64\bin\libssl-3-x64.dll" VVCSoftware_VTM-VTM-23.11/bin/vs17/msvc-19.44/x86_64/release
 #         curl -O https://vcgit.hhi.fraunhofer.de/jvet/JM/-/archive/JM-19.1/JM-JM-19.1.zip
 #         tar -xf JM-JM-19.1.zip
 #         cmake -S JM-JM-19.1 -B build -A x64
       - uses: actions/upload-artifact@v4
         with:
-          path: .
+          path: VVCSoftware_VTM-VTM-23.11/bin/vs17/msvc-19.44/x86_64/release
 #         path: JM-JM-19.1/bin/vs17/msvc-19.44/x86_64/release
