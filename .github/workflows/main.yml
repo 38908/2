@@ -4,12 +4,8 @@ jobs:
     runs-on: windows-2025
     steps:
       - run: |
-          curl -O https://vcgit.hhi.fraunhofer.de/jvet/VVCSoftware_VTM/-/archive/VTM-23.11/VVCSoftware_VTM-VTM-23.11.zip
-          tar -xf VVCSoftware_VTM-VTM-23.11.zip
-          cmake -S VVCSoftware_VTM-VTM-23.11 -B build -A x64 -DENABLE_SEARCH_OPENSSL=off
-          cmake --build build --config Release
           curl -O https://media.xiph.org/video/derf/y4m/big_buck_bunny_360p24.y4m.xz
-          tar -xf big_buck_bunny_360p24.y4m.xz
+          7z e big_buck_bunny_360p24.y4m.xz
           del big_buck_bunny_360p24.y4m.xz
           VVCSoftware_VTM-VTM-23.11/bin/vs17/msvc-19.44/x86_64/release/EncoderApp -c VVCSoftware_VTM-VTM-23.11/cfg/encoder_randomaccess_vtm.cfg -i big_buck_bunny_360p24.y4m -f 14315
       - uses: actions/upload-artifact@v4
