@@ -3,7 +3,7 @@ jobs:
   build:
     runs-on: windows-2025
     steps:
-      - run: curl -L https://vcgit.hhi.fraunhofer.de/jvet/VVCSoftware_VTM/-/archive/VTM-23.11/VVCSoftware_VTM-VTM-23.11.zip
+      - run: curl -O https://vcgit.hhi.fraunhofer.de/jvet/VVCSoftware_VTM/-/archive/VTM-23.11/VVCSoftware_VTM-VTM-23.11.zip
       - run: tar -xf VVCSoftware_VTM-VTM-23.11.zip
       - run: cmake -S VVCSoftware_VTM-VTM-23.11 -B build -A x64
       - run: cmake --build build --config Release
