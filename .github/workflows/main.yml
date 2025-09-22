@@ -3,10 +3,14 @@ jobs:
   build:
     runs-on: windows-2025
     steps:
-      - run: curl -O https://vcgit.hhi.fraunhofer.de/jvet/JM/-/archive/JM-19.1/JM-JM-19.1.zip
-      - run: tar -xf JM-JM-19.1.zip
-      - run: cmake -S JM-JM-19.1 -B build -A x64
+#      - run: curl -O https://vcgit.hhi.fraunhofer.de/jvet/JM/-/archive/JM-19.1/JM-JM-19.1.zip
+#      - run: tar -xf JM-JM-19.1.zip
+#      - run: cmake -S JM-JM-19.1 -B build -A x64
+      - run: curl -O https://vcgit.hhi.fraunhofer.de/jvet/VVCSoftware_VTM/-/archive/VTM-23.11/VVCSoftware_VTM-VTM-23.11.zip
+      - run: tar -xf VVCSoftware_VTM-VTM-23.11.zip
+      - run: cmake -S VVCSoftware_VTM-VTM-23.11 -B build -A x64
       - run: cmake --build build --config Release
       - uses: actions/upload-artifact@v4
         with:
-          path: JM-JM-19.1/bin/vs17/msvc-19.44/x86_64/release
+#          path: JM-JM-19.1/bin/vs17/msvc-19.44/x86_64/release
+          path: VVCSoftware_VTM-VTM-23.11/bin
