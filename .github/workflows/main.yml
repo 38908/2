@@ -10,4 +10,4 @@ jobs:
           cmake --build build --config Release
       - uses: actions/upload-artifact@master
         with:
-          path: JM-master/bin/vs17/msvc-19.44/x86_64/release
+          path: JM-master/bin/vs18/msvc-19.50/x86_64/release
