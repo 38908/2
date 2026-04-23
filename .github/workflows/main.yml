@@ -8,6 +8,6 @@ jobs:
           tar -xf JM-master.zip
           cmake -S JM-master -B build -A x64
           cmake --build build --config Release
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@master
         with:
           path: JM-master/bin/vs17/msvc-19.44/x86_64/release
